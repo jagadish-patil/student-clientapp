@@ -1,0 +1,17 @@
+<form [formGroup] = "student" (ngSubmit) = "update()">
+    Id: <input type="text" formControlName="id" readonly/> <br/>
+    Student Name: <input type="text" formControlName="studentName"/> <br/>
+    Email ID: <input type="text" formControlName="email"/> <br/>
+    Mobile Numbers: <input type="text" formControlName="mobileNumber"/> <br/>
+    <div formArrayName="courses">
+        <div [formGroupName]="i" *ngFor="let course of courses.controls; index as i">
+            Id: <input type="text" formControlName="id"/> <br/>
+            Course Name: <input type="text" formControlName="name"/> <br/>
+            Fees: <input type="text" formControlName="fees"/> <br/>
+            <button (click) = "removeCourse(i)">Remove</button>
+            <hr>
+        </div>
+    </div>
+    <button (click) = "createNewCourse($event)">Add New Course</button> <br/>
+    <input type="submit" value="submit"/>
+</form>

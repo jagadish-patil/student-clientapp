@@ -1,0 +1,12 @@
+<div *ngIf="student">
+    Id: {{ student.id }} <br/>
+    Student Name: {{ student.studentName }} <br/>
+    Email ID: {{ student.email }} <br/>
+    Mobile Number: {{ student.mobileNumber }} <br/>
+    Courses:
+    <div *ngFor="let course of student.courses">
+        {{ course.id }},
+        {{ course.name }},
+        {{ course.fees }},
+    </div>
+</div>

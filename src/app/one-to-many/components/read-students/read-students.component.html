@@ -1,0 +1,34 @@
+<div *ngIf="students.length != 0">
+    <table border='1'>
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Courses</th>
+            <th>Read</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor="let student of students">
+            <td> {{ student.id }} </td>
+            <td> {{ student.studentName }} </td>
+            <td> {{ student.email }} </td>
+            <td> {{ student.mobileNumber }} </td>
+            <td>
+                <span *ngFor="let course of student.courses">
+                    {{ course.id }}, {{ course.name }}, {{ course.fees }} &
+                </span>
+            </td>
+            <td>
+                <button (click) = "read(student.id)">Read</button>
+            </td>
+            <td>
+                <button (click) = "readForUpdate(student.id)">Update</button>
+            </td>
+            <td>
+                <button (click) = "delete(student.id)">delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
